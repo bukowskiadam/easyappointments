@@ -31,6 +31,7 @@ class Config {
     const BASE_URL      = 'http://url-to-easyappointments-directory';
     const LANGUAGE      = 'english';
     const DEBUG_MODE    = FALSE;
+    const INDEX_PAGE    = 'index.php';
 
     // ------------------------------------------------------------------------
     // Database Settings
@@ -48,6 +49,25 @@ class Config {
     const GOOGLE_CLIENT_ID      = '';
     const GOOGLE_CLIENT_SECRET  = '';
     const GOOGLE_API_KEY        = '';
+
+    // ------------------------------------------------------------------------
+    // PHPMailer default settings
+    // ------------------------------------------------------------------------
+    // Example to use smtp server:
+    //
+    // return array('Mailer'     => 'smtp',
+    //              'Host'       => 'smtp1.example.com;smtp2.example.com',
+    //              'SMTPAuth'   => true,
+    //              'Username'   => 'user@example.com',
+    //              'Password'   => 'secret',
+    //              'SMTPSecure' => 'tls',
+    //              'Port'       => 587);
+    //
+    // For options please refer to PHPMailer documentation
+    // ------------------------------------------------------------------------
+    public static function PHPMailer() {
+        return array();
+    }
 }
 /* End of file config.php */
 /* Location: ./config.php */

@@ -39,7 +39,7 @@ $config['base_url']	= Config::BASE_URL;
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = Config::INDEX_PAGE;
 
 /*
 |--------------------------------------------------------------------------
@@ -403,6 +403,18 @@ $config['rewrite_short_tags'] = FALSE;
 |
 */
 $config['proxy_ips'] = '';
+
+
+/*
+|--------------------------------------------------------------------------
+| PHPMailer default settings
+|--------------------------------------------------------------------------
+|
+| If you need to use SMTP server or change any options of PHPMailer,
+| you can set them in main config.php file.
+|
+*/
+$config['php_mailer'] = method_exists('Config', 'PHPMailer') ? Config::PHPMailer() : array();
 
 
 /* End of file config.php */
