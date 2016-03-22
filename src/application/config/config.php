@@ -9,8 +9,8 @@
 | the global "config" variable.
 |
 */
-$config['ea_version'] = '1.1.0'; // This must be changed manually.
-$config['ea_release_title'] = 'Beta 2'; // Leave empty for no title or add BETA, TEST etc ...
+$config['ea_version'] = '1.1.1'; // This must be changed manually.
+$config['ea_release_title'] = ''; // Leave empty for no title or add BETA, TEST etc ...
 $config['ea_google_sync_feature'] = Config::GOOGLE_SYNC_FEATURE;
 
 /*
@@ -82,8 +82,19 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language'] = Config::LANGUAGE; // default language
 
+$config['language'] = defined('Config::LANGUAGE') ? Config::LANGUAGE : 'english';
+
+/*
+|--------------------------------------------------------------------------
+| Available Languages
+|--------------------------------------------------------------------------
+|
+| Each item of this array must be a directory with the translation files in
+| the /application/language directory. The users will be able to select one
+| of these languages.
+|
+*/
 $config['available_languages'] = array(
     'english',
     'german',
