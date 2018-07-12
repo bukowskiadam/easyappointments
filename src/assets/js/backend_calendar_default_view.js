@@ -1187,6 +1187,9 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
         if (GlobalVariables.availableProviders.length > 0) {
             var optgroupHtml = '<optgroup label="' + EALang.providers + '" type="providers-group">';
 
+            optgroupHtml += '<option value="" type="' + FILTER_TYPE_PROVIDER + '" google-sync="false">'
+                + EALang.any_provider + '</option>';
+
             $.each(GlobalVariables.availableProviders, function (index, provider) {
                 var hasGoogleSync = provider.settings.google_sync === '1' ? 'true' : 'false';
 

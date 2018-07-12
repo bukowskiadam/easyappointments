@@ -202,9 +202,11 @@ class Backend_api extends CI_Controller {
             $record_id = $this->db->escape($_POST['record_id']);
             $start_date = $this->db->escape($_POST['start_date']);
             $end_date = $this->db->escape(date('Y-m-d', strtotime($_POST['end_date'] . ' +1 day')));
+            $has_record_id = $record_id !== "''";
 
-            $where_clause = $where_id . ' = ' . $record_id . '
-                AND ((start_datetime > ' . $start_date . ' AND start_datetime < ' . $end_date . ') 
+            $where_clause = $has_record_id ? ($where_id . ' = ' . $record_id . ' AND ') : '';
+            $where_clause .= '
+                ((start_datetime > ' . $start_date . ' AND start_datetime < ' . $end_date . ') 
                 or (end_datetime > ' . $start_date . ' AND end_datetime < ' . $end_date . ') 
                 or (start_datetime <= ' . $start_date . ' AND end_datetime >= ' . $end_date . ')) 
                 AND is_unavailable = 0
@@ -220,7 +222,7 @@ class Backend_api extends CI_Controller {
             }
 
             // Get unavailable periods (only for provider).
-            if ($this->input->post('filter_type') == FILTER_TYPE_PROVIDER)
+            if ($this->input->post('filter_type') == FILTER_TYPE_PROVIDER && $has_record_id)
             {
                 $where_clause = $where_id . ' = ' . $record_id . '
                     AND ((start_datetime > ' . $start_date . ' AND start_datetime < ' . $end_date . ') 
