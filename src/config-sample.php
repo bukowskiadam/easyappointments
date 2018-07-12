@@ -52,6 +52,19 @@ class Config {
     const GOOGLE_CLIENT_ID      = '';
     const GOOGLE_CLIENT_SECRET  = '';
     const GOOGLE_API_KEY        = '';
+
+    // ------------------------------------------------------------------------
+    // EMAIL SETTINGS
+    // ------------------------------------------------------------------------
+
+    const EMAIL_PROTOCOL      = 'mail'; // or 'smtp'
+    const EMAIL_MAILTYPE      = 'html'; // or 'text'
+    const EMAIL_SMTP_HOST     = '';
+    const EMAIL_SMTP_USER     = '';
+    const EMAIL_SMTP_PASS     = '';
+    const EMAIL_SMTP_CRYPTO   = 'ssl'; // or 'tls'
+    const EMAIL_SMTP_PORT     = 25;
+    const EMAIL_SMTP_OPTIONS  = []; // additional options passed to $phpMailer->SMTPOptions
 }
 
 /* End of file config.php */

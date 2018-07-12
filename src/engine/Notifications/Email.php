@@ -338,6 +338,7 @@ class Email {
             $mailer->Password = $this->config['smtp_pass'];
             $mailer->SMTPSecure = $this->config['smtp_crypto'];
             $mailer->Port = $this->config['smtp_port'];
+            $mailer->SMTPOptions = $this->config['smtp_options'];
         }
 
         $mailer->IsHTML($this->config['mailtype'] === 'html');
