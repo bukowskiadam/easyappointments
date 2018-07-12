@@ -30,8 +30,12 @@ class Consents_model extends CI_Model {
     {
         $this->validate($consent);
 
+        $now = date('Y-m-d H:i:s');
+        $consent['modified'] = $now;
+
         if ( ! isset($consent['id']))
         {
+            $consent['created'] = $now;
             $consent['id'] = $this->_insert($consent);
         }
         else
